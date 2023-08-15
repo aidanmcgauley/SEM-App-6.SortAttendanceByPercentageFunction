@@ -1,4 +1,4 @@
-const { parameterChecker } = require('../src/functions');
+const { parameterChecker, sortByPercentage } = require('../src/functions');
 
 describe('parameterChecker', () => {
     it('should return error if any item name is empty', () => {
