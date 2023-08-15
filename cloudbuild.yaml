@@ -4,6 +4,6 @@ steps:
       - 'functions'
       - 'deploy'
       - 'sem-sortbypercentage'
-      - '--source=.'
+      - '--source=src'
       - '--runtime=nodejs14'
       - '--trigger-http'
