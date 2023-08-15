@@ -2,8 +2,13 @@ image: node:14-alpine
 
 stages:
     - test
+    - deploy
 
 before_script:
+    - apk --no-cache add curl python3 bash # Install dependencies (Alpine Linux)
+    - curl -sSL https://sdk.cloud.google.com | bash
+    - source /root/google-cloud-sdk/path.bash.inc
+
     - npm install
 
 test:
@@ -15,3 +20,13 @@ test:
 cache:
     paths:
         - node_modules/
+
+deploy:
+  stage: deploy
+  only:
+    - master # Deploy only on the master branch
+  script:
+    - echo $GCP_SERVICE_ACCOUNT_KEY > gcp-service-account-key.json
+    - gcloud auth activate-service-account --key-file gcp-service-account-key.json
+    - gcloud config set project radiant-destiny-392018
+    - gcloud builds submit --config cloudbuild.yaml .

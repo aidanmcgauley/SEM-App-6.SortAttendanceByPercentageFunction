@@ -1,3 +1,9 @@
 steps:
     - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'sortbypercentage', '--source=.']
+    args:
+      - 'functions'
+      - 'deploy'
+      - 'sem-sortbypercentage'
+      - '--source=.'
+      - '--runtime=nodejs14'
+      - '--trigger-http'
