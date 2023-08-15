@@ -20,8 +20,11 @@ deploy:
   only:
     - master # Deploy only on the master branch
   script:
-    # Install Google Cloud SDK
-    - apk --no-cache add curl python3 bash
+    # Install dependencies
+    - apk --no-cache add curl bash
+    - apk add python3=3.7.10-r0 # Install specific version of Python 3.7
+
+    # Download and install Google Cloud SDK
     - curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-353.0.0-linux-x86_64.tar.gz
     - tar zxvf google-cloud-sdk-353.0.0-linux-x86_64.tar.gz
     - ./google-cloud-sdk/install.sh -q
