@@ -3,13 +3,6 @@ image: node:14-alpine
 stages:
     - test
 
-variables:
-    NODE_ENV: test
-
-cache:
-    paths:
-        - node_modules/
-
 before_script:
     - npm install
 
@@ -18,9 +11,7 @@ test:
     script:
         - npm test
 
-deploy_function:
-    stage: deploy
-    script:
-        - npm run deploy
-    only:
-        - master
+# Testing to see if the cache speeds up subsequent builds
+cache:
+    paths:
+        - node_modules/
