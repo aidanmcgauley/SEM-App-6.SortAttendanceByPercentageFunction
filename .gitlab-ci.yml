@@ -23,14 +23,9 @@ deploy:
     # Install dependencies
     - apk --no-cache add curl bash python3
 
-    # Print Python version
-    - python3 --version
-
     # Download and install Google Cloud SDK
     - curl https://sdk.cloud.google.com | bash
-    - ls -la $HOME/google-cloud-sdk
-    - echo $PATH
-    - source $HOME/google-cloud-sdk/path.bash.inc
+    - export PATH=$PATH:$HOME/google-cloud-sdk/bin
     - gcloud --version
 
     # Deploy
