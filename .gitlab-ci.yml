@@ -4,16 +4,10 @@ stages:
     - test
     - deploy
 
-before_script:
-    - apk --no-cache add curl python3 bash # Install dependencies (Alpine Linux)
-    - curl -sSL https://sdk.cloud.google.com | bash
-    - source /root/google-cloud-sdk/path.bash.inc
-
-    - npm install
-
 test:
     stage: test
     script:
+        - npm install
         - npm test
 
 # Testing to see if the cache speeds up subsequent builds
@@ -26,6 +20,14 @@ deploy:
   only:
     - master # Deploy only on the master branch
   script:
+    # Install Google Cloud SDK
+    - apk --no-cache add curl python3 bash
+    - curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-353.0.0-linux-x86_64.tar.gz
+    - tar zxvf google-cloud-sdk-353.0.0-linux-x86_64.tar.gz
+    - ./google-cloud-sdk/install.sh -q
+    - source ./google-cloud-sdk/path.bash.inc
+
+    # Deploy
     - echo $GCP_SERVICE_ACCOUNT_KEY > gcp-service-account-key.json
     - gcloud auth activate-service-account --key-file gcp-service-account-key.json
     - gcloud config set project radiant-destiny-392018
