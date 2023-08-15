@@ -73,8 +73,8 @@ describe('sortByPercentage', () => {
         { attendance: 20, total_hours: 50 }
         ];
         const sortedItems = sortByPercentage(items);
-        expect(sortedItems[0].percentage).toEqual(0);
-        expect(sortedItems[1].percentage).toEqual(40);
+        expect(sortedItems[0].percentage).toEqual(40);
+        expect(sortedItems[1].percentage).toEqual(0);
     });
 
     it('should return an empty array when passed an empty array', () => {
