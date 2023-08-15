@@ -1,0 +1,26 @@
+image: node:14-alpine
+
+stages:
+    - test
+
+variables:
+    NODE_ENV: test
+
+cache:
+    paths:
+        - node_modules/
+
+before_script:
+    - npm install
+
+test:
+    stage: test
+    script:
+        - npm test
+
+deploy_function:
+    stage: deploy
+    script:
+        - npm run deploy
+    only:
+        - master
