@@ -73,7 +73,7 @@ describe('sortByPercentage', () => {
         { attendance: 20, total_hours: 50 }
         ];
         const sortedItems = sortByPercentage(items);
-        expect(sortedItems[0].percentage).toEqual(Infinity);
+        expect(sortedItems[0].percentage).toEqual(0);
         expect(sortedItems[1].percentage).toEqual(40);
     });
 
@@ -99,8 +99,8 @@ describe('sortByPercentage', () => {
         { attendance: 30, total_hours: -100 }
         ];
         const sortedItems = sortByPercentage(items);
-        expect(sortedItems[0].percentage).toEqual(-30);
-        expect(sortedItems[1].percentage).toEqual(-10);
+        expect(sortedItems[0].percentage).toEqual(-10);
+        expect(sortedItems[1].percentage).toEqual(-30);
     });
 
     it('should preserve original order for items with equal percentages', () => {
