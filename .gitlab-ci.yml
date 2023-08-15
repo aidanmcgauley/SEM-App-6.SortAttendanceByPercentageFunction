@@ -21,14 +21,11 @@ deploy:
     - master # Deploy only on the master branch
   script:
     # Install dependencies
-    - apk --no-cache add curl bash
-    - apk add python3=3.7.10-r0 # Install specific version of Python 3.7
+    - apk --no-cache add curl bash python3
 
     # Download and install Google Cloud SDK
-    - curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-353.0.0-linux-x86_64.tar.gz
-    - tar zxvf google-cloud-sdk-353.0.0-linux-x86_64.tar.gz
-    - ./google-cloud-sdk/install.sh -q
-    - source ./google-cloud-sdk/path.bash.inc
+    - curl https://sdk.cloud.google.com | bash
+    - source $HOME/google-cloud-sdk/path.bash.inc
 
     # Deploy
     - echo $GCP_SERVICE_ACCOUNT_KEY > gcp-service-account-key.json
