@@ -1,9 +1,9 @@
-steps:
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - 'functions'
-      - 'deploy'
-      - 'sem-sortbypercentage'
-      - '--source=src'
-      - '--runtime=nodejs14'
-      - '--trigger-http'
+# steps:
+#   - name: 'gcr.io/cloud-builders/gcloud'
+#     args:
+#       - 'functions'
+#       - 'deploy'
+#       - 'sem-sortbypercentage'
+#       - '--source=src'
+#       - '--runtime=nodejs14'
+#       - '--trigger-http'
