@@ -14,7 +14,7 @@ RUN npm install
 COPY src/ ./src/
 
 # Expose the port your app runs on
-EXPOSE 8000
+EXPOSE 8006
 
 # Command to run the application
 CMD [ "node", "src/index.js" ]
