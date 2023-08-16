@@ -1,6 +1,11 @@
+const express = require('express')
+const app = express()
+const port = 8006
+
 const { parameterChecker, sortByPercentage } = require('./functions');
 
-exports.sortbypercentage = (req, res) => {
+//exports.sortbypercentage = (req, res) => {
+app.get('/', (req, res) => {
     
     // Set CORS headers
     res.set('Access-Control-Allow-Origin', '*');
@@ -47,4 +52,9 @@ exports.sortbypercentage = (req, res) => {
     // Send the sorted items back to the client
     res.json({ sorted_by_percentage: sortedItems });
     
-};
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});

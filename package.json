@@ -1,13 +1,19 @@
 {
-    "name": "sem-sortbypercentage-40058902",
-    "version": "1.0.0",
-    "description": "Backend function that sorts attendances by percentage of total available sessions attended",
-    "main": "src/index.js",
-    "scripts": {
-        "start": "node src/index.js",
-        "test": "jest"
-    },
-    "devDependencies": {
-        "jest": "^27.0.0"
-    }
+  "name": "sem-sortbypercentage-40058902",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.hal.davecutting.uk:40058902/sem-sortbypercentage.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
