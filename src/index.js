@@ -1,4 +1,3 @@
-const functions = require('@google-cloud/functions-framework');
 const { parameterChecker, sortByPercentage } = require('./functions');
 
 exports.sortbypercentage = (req, res) => {
