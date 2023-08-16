@@ -1,4 +1,5 @@
 {
+    "main": "src/index.js",
     "scripts": {
         "test": "jest",
         "deploy": "gcloud functions deploy sortbypercentage --runtime nodejs14 --trigger-http --region us-east1"
@@ -7,6 +8,6 @@
         "jest": "^27.0.0"
     },
     "dependencies": {
-        "@google-cloud/functions-framework": "^2.0.0"
+        "@google-cloud/functions-framework": "^3.0.0"
     }
 }
