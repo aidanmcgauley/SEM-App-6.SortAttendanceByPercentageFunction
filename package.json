@@ -7,12 +7,17 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node ./src/index.js"
+    "start": "node ./src/index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git@gitlab.hal.davecutting.uk:40058902/sem-sortbypercentage.git"
   },
+  "devDependencies": {
+    "jest": "^27.0.0"
+  },
+    
   "keywords": [],
   "author": "",
   "license": "ISC",
