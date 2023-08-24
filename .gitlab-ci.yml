@@ -8,8 +8,3 @@ test:
     script:
         - npm install
         - npm test
-
-# Testing to see if the cache speeds up subsequent builds
-cache:
-    paths:
-        - node_modules/
